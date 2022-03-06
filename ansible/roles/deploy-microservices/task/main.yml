@@ -1,0 +1,17 @@
+---
+
+- name: "deploy frontend"
+  shell: |  
+        kubectl create namespace jumia-backend
+        kubectl create namespace jumia-frontend
+        kubectl apply -f frontend.yml
+        kubectl apply -f frontend-svc.yml
+
+- name: "deploy backend"
+  shell: |  
+        kubectl apply -f backend.yml
+        kubectl apply -f backend-svc.yml
+
+- name: "deploy ingress"
+  shell: |  
+        kubectl apply -f ingress.yml
