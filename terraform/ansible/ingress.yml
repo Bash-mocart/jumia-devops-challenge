@@ -6,6 +6,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 8081***REMOVED***, {"HTTP": 443***REMOVED***]'
 spec:
   defaultBackend:
     service:

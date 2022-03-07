@@ -85,9 +85,8 @@ resource "aws_eks_node_group" "nodes_general" {
     ***REMOVED***
   ***REMOVED***
 
-  
   provisioner "local-exec" {
-    command = "aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=running --output text > instance.txt"
+    command = "echo -n $(aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=running --output text) > instance"
   ***REMOVED***
 
 

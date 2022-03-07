@@ -3,7 +3,7 @@
 
 resource "aws_vpc" "main" {
   # The CIDR block for the VPC.
-  cidr_block = "192.168.0.0/16"
+  cidr_block = var.vpc_cidr_block
 
   # Makes your instances shared on the host.
   instance_tenancy = "default"

@@ -4,7 +4,8 @@ resource "aws_db_subnet_group" "database-subnet-group" {
   name         = "database subnets"
   subnet_ids = [
       aws_subnet.private_1.id,
-      aws_subnet.private_2.id
+      aws_subnet.private_2.id,
+      aws_subnet.private_3.id
     ]
   description  = "Subnets for Database Instance"
 
@@ -24,22 +25,21 @@ resource "aws_db_instance" "postgres" {
       DB_NAME = var.db_name
     ***REMOVED***
   ***REMOVED***
-  provisioner "local-exec" {
-    command = "echo yes"
-    working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
-  ***REMOVED***
-  provisioner "local-exec" {
-    command = "mvn clean install"
-    working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
-  ***REMOVED***
-  provisioner "local-exec" {
-    command = "sudo docker build -t bashox/jumia-frontend:prod ."
-    working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
-  ***REMOVED***
-  provisioner "local-exec" {
-    command = "sudo docker push bashox/jumia-frontend:prod"
-    working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
-  ***REMOVED***
+  # provisioner "local-exec" {
+  #   command = "echo yes"
+  #   working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
+  # ***REMOVED***
+  # provisioner "local-exec" {
+  #   command = "mvn clean install"
+  #   working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
+  # ***REMOVED***
+  # provisioner "local-exec" {
+  #   working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
+  # ***REMOVED***
+  # provisioner "local-exec" {
+  #   command = "sudo docker push bashox/jumia-frontend:prod"
+  #   working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
+  # ***REMOVED***
   
   allocated_storage    = 10
   engine               = var.db_engine

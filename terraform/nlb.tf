@@ -1,7 +1,6 @@
 resource "aws_lb" "nlb" {
-  provisioner "local-exec" {
-    command = "aws elbv2 describe-load-balancers --query 'LoadBalancers[*]'.LoadBalancerArn --output text > file.txt"
-  ***REMOVED***
+
+  
 
   depends_on = [time_sleep.wait_120_seconds]
 
@@ -81,6 +80,11 @@ resource "aws_lb_target_group" "front-end-allow-443" {
 ***REMOVED***
 
 resource "time_sleep" "wait_120_seconds" {
+  provisioner "local-exec" {
+    command = "echo -n $(aws elbv2 describe-load-balancers --query 'LoadBalancers[*]'.LoadBalancerArn --output text) > file"
+  ***REMOVED***
+
+
 
   depends_on = [aws_eks_node_group.nodes_general]
 
@@ -88,23 +92,23 @@ resource "time_sleep" "wait_120_seconds" {
 ***REMOVED***
 
 resource "aws_lb_target_group_attachment" "nlb-attachment-8081" {
-  depends_on = [time_sleep.wait_120_seconds]
+  depends_on = [aws_lb.nlb]
   target_group_arn = aws_lb_target_group.front-end-allow-8081.arn
-  target_id        = file("file.txt")
+  target_id        = file("file")
   port             = 8081
 ***REMOVED***
 
 resource "aws_lb_target_group_attachment" "nlb-attachment-443" {
-  depends_on = [time_sleep.wait_120_seconds]
+  depends_on = [aws_lb.nlb]
   target_group_arn = aws_lb_target_group.front-end-allow-443.arn
-  target_id        = file("file.txt")
+  target_id        = file("file")
   port             = 443
 ***REMOVED***
 
 resource "aws_lb_target_group_attachment" "nlb-attachment-1337" {
-  depends_on = [time_sleep.wait_120_seconds]
+  depends_on = [aws_lb.nlb]
   target_group_arn = aws_lb_target_group.front-end-allow-1337.arn
-  target_id        = file("instance.txt")
+  target_id        = file("instance")
   port             = 1337
 ***REMOVED***
 

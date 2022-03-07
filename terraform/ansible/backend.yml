@@ -6,12 +6,6 @@ metadata:
   labels:
     app: backend-label
 spec:
-  # progressDeadlineSeconds: 3600
-  # strategy:
-  #   type: RollingUpdate
-  #   rollingUpdate:
-  #     maxUnavailable: 0
-  #     maxSurge: 1
   replicas: 3
   selector:
     matchLabels:
@@ -33,7 +27,7 @@ spec:
                 - arm64
       containers:
       - name: backend
-        image:  bashox/jumia ##variable
+        image: bashox/jumia ##variable
         ports:
         - name: tcp
           containerPort: 8080

@@ -47,6 +47,7 @@ resource "aws_iam_role_policy_attachment" "amazon_eks_cluster_policy" {
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster
 
 resource "aws_eks_cluster" "eks" {
+
   # Name of the cluster.
   name = var.eks_cluster
 

@@ -52,7 +52,7 @@
           aws iam create-policy \
             --policy-name AWSLoadBalancerControllerIAMPolicy \
             --policy-document file://iam-policy.json
-    ignore_errors: yes
+    
   
   - name: "install aws load balancer controller"
     shell: |  
@@ -62,7 +62,7 @@
           --name=aws-load-balancer-controller \
           --attach-policy-arn=arn:aws:iam::{{ ACCOUNT_ID ***REMOVED******REMOVED***:policy/AWSLoadBalancerControllerIAMPolicy \
           --approve
-    ignore_errors: yes
+    
 
   - name: "install aws load balancer controller"
     shell: |  
