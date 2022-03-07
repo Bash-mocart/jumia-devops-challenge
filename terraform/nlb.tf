@@ -1,4 +1,7 @@
 resource "aws_lb" "nlb" {
+  provisioner "local-exec" {
+    command = "aws elbv2 describe-load-balancers --query 'LoadBalancers[*]'.LoadBalancerArn --output text > file.txt"
+  ***REMOVED***
 
   depends_on = [time_sleep.wait_120_seconds]
 
