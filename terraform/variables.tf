@@ -120,6 +120,10 @@ variable "eks_node_group_name" {
   default = "node-general"
 ***REMOVED***
 
+variable "account_id" {
+  type    = string
+  sensitive   = true
+***REMOVED***
 
 
 
