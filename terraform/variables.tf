@@ -12,27 +12,37 @@ variable "db_password" {
 
 variable "vpc_cidr_block" {
   type    = string
-  default = "192.168.0.0/16"
+  default = "10.0.0.0/16"
 ***REMOVED***
 
 variable "private_subnet_a_cidr_block" {
   type    = string
-  default = "192.168.128.0/18"
+  default = "10.0.4.0/24"
 ***REMOVED***
 
 variable "private_subnet_b_cidr_block" {
   type    = string
-  default = "192.168.192.0/18"
+  default = "10.0.5.0/24"
+***REMOVED***
+
+variable "private_subnet_c_cidr_block" {
+  type    = string
+  default = "10.0.6.0/24"
+***REMOVED***
+
+variable "public_subnet_c_cidr_block" {
+  type    = string
+  default = "10.0.3.0/24"
 ***REMOVED***
 
 variable "public_subnet_b_cidr_block" {
   type    = string
-  default = "192.168.64.0/18"
+  default = "10.0.2.0/24"
 ***REMOVED***
 
 variable "public_subnet_a_cidr_block" {
   type    = string
-  default = "192.168.0.0/18"
+  default = "10.0.1.0/24"
 ***REMOVED***
 
 variable "db_name" {

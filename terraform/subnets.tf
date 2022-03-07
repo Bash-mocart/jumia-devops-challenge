@@ -43,6 +43,29 @@ resource "aws_subnet" "public_2" {
   ***REMOVED***
 ***REMOVED***
 
+
+resource "aws_subnet" "public_3" {
+  # The VPC ID
+  vpc_id = aws_vpc.main.id
+
+  # The CIDR block for the subnet.
+  cidr_block = var.public_subnet_c_cidr_block
+
+  # The AZ for the subnet.
+  availability_zone = "eu-west-3c"
+
+  # Required for EKS. Instances launched into the subnet should be assigned a public IP address.
+  map_public_ip_on_launch = true
+
+  # A map of tags to assign to the resource.
+  tags = {
+    Name                        = "public-eu-west-3c"
+    "kubernetes.io/cluster/eks" = "shared"
+    "kubernetes.io/role/elb"    = 1
+  ***REMOVED***
+***REMOVED***
+
+
 resource "aws_subnet" "private_1" {
   # The VPC ID
   vpc_id = aws_vpc.main.id
@@ -78,3 +101,22 @@ resource "aws_subnet" "private_2" {
     "kubernetes.io/role/internal-elb" = 1
   ***REMOVED***
 ***REMOVED***
+
+resource "aws_subnet" "private_3" {
+  # The VPC ID
+  vpc_id = aws_vpc.main.id
+
+  # The CIDR block for the subnet.
+  cidr_block = var.private_subnet_c_cidr_block
+
+  # The AZ for the subnet.
+  availability_zone = "eu-west-3c"
+
+  # A map of tags to assign to the resource.
+  tags = {
+    Name                              = "private-eu-west-3c"
+    "kubernetes.io/cluster/eks"       = "shared"
+    "kubernetes.io/role/internal-elb" = 1
+  ***REMOVED***
+***REMOVED***
+

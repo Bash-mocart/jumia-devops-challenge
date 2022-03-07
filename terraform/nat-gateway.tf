@@ -27,3 +27,16 @@ resource "aws_nat_gateway" "gw2" {
     Name = "NAT 2"
   ***REMOVED***
 ***REMOVED***
+
+resource "aws_nat_gateway" "gw3" {
+  # The Allocation ID of the Elastic IP address for the gateway.
+  allocation_id = aws_eip.nat3.id
+
+  # The Subnet ID of the subnet in which to place the gateway.
+  subnet_id = aws_subnet.public_3.id
+
+  # A map of tags to assign to the resource.
+  tags = {
+    Name = "NAT 3"
+  ***REMOVED***
+***REMOVED***

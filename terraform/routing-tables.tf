@@ -54,3 +54,21 @@ resource "aws_route_table" "private2" {
     Name = "private2"
   ***REMOVED***
 ***REMOVED***
+
+resource "aws_route_table" "private3" {
+  # The VPC ID.
+  vpc_id = aws_vpc.main.id
+
+  route {
+    # The CIDR block of the route.
+    cidr_block = "0.0.0.0/0"
+
+    # Identifier of a VPC NAT gateway.
+    nat_gateway_id = aws_nat_gateway.gw3.id
+  ***REMOVED***
+
+  # A map of tags to assign to the resource.
+  tags = {
+    Name = "private3"
+  ***REMOVED***
+***REMOVED***

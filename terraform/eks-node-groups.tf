@@ -72,7 +72,7 @@ resource "aws_eks_node_group" "nodes_general" {
   subnet_ids = [
     aws_subnet.private_1.id,
     aws_subnet.private_2.id,
-    # aws_subnet.private_3.id
+    aws_subnet.private_3.id
   ]
 
   # Configuration block with scaling settings
