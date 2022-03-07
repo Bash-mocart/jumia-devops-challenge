@@ -1,7 +1,7 @@
 resource "aws_lb" "nlb" {
 
   depends_on = [time_sleep.wait_120_seconds]
-  
+
   name               = "nlb"
   internal           = false
   load_balancer_type = "network"
@@ -43,7 +43,7 @@ resource "aws_lb_listener" "nlb-listener-1337" {
 resource "aws_lb_listener" "nlb-listener-8081" {
   load_balancer_arn = aws_lb.nlb.arn
   port              = "8081"
-  protocol          = "HTTP"
+  protocol          = "TCP"
 
   default_action {
     type             = "forward"
@@ -65,7 +65,7 @@ resource "aws_lb_target_group" "front-end-allow-8081" {
   name        = "routes-http"
   target_type = "alb"
   port        = 8081
-  protocol    = "HTTP"
+  protocol    = "TCP"
   vpc_id      = aws_vpc.main.id
 ***REMOVED***
 
@@ -73,7 +73,7 @@ resource "aws_lb_target_group" "front-end-allow-443" {
   name        = "routes-http"
   target_type = "alb"
   port        = 443
-  protocol    = "HTTP"
+  protocol    = "TCP"
   vpc_id      = aws_vpc.main.id
 ***REMOVED***
 
