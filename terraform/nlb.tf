@@ -62,7 +62,7 @@ resource "aws_lb_target_group" "front-end-allow-1337" {
 ***REMOVED***
 
 resource "aws_lb_target_group" "front-end-allow-8081" {
-  name        = "routes-http"
+  name        = "routes-8081"
   target_type = "alb"
   port        = 8081
   protocol    = "TCP"
@@ -70,7 +70,7 @@ resource "aws_lb_target_group" "front-end-allow-8081" {
 ***REMOVED***
 
 resource "aws_lb_target_group" "front-end-allow-443" {
-  name        = "routes-http"
+  name        = "routes-443"
   target_type = "alb"
   port        = 443
   protocol    = "TCP"
