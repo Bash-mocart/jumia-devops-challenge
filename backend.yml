@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
-  namespace: jumia-backend
+  namespace: jumia-frontend
   labels:
     app: backend-label
 spec:
@@ -33,7 +33,7 @@ spec:
                 - arm64
       containers:
       - name: backend
-        image: mohamedaly89/jumia-phone-number-validator:validator-backend-image ##variable
+        image:  bashox/jumia ##variable
         ports:
         - name: tcp
           containerPort: 8080
