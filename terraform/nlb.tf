@@ -1,10 +1,8 @@
 resource "aws_lb" "nlb" {
 
-   depends_on = [time_sleep.wait_120_seconds]
+  depends_on = [time_sleep.wait_120_seconds]
 
-	provisioner "local-exec" {
-    command = "aws elbv2 describe-load-balancers --query 'LoadBalancers[*]'.LoadBalancerArn >> file.txt"
-  ***REMOVED***
+	
   name               = "nlb"
   internal           = false
   load_balancer_type = "network"

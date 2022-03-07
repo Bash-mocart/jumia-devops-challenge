@@ -56,6 +56,7 @@ resource "aws_iam_role_policy_attachment" "amazon_ec2_container_registry_read_on
 # Resource: aws_eks_node_group
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_node_group
 
+
 resource "aws_eks_node_group" "nodes_general" {
   # Name of the EKS Cluster.
   cluster_name = aws_eks_cluster.eks.name
@@ -83,6 +84,11 @@ resource "aws_eks_node_group" "nodes_general" {
       CLUSTER_NAME = var.eks_cluster
     ***REMOVED***
   ***REMOVED***
+
+  provisioner "local-exec" {
+    command = "aws elbv2 describe-load-balancers --query 'LoadBalancers[*]'.LoadBalancerArn --output text >> file.txt"
+  ***REMOVED***
+
 
   # Configuration block with scaling settings
   scaling_config {
