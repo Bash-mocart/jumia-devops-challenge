@@ -79,7 +79,7 @@ resource "aws_lb_target_group" "front-end-allow-443" {
 
 resource "time_sleep" "wait_120_seconds" {
 
-  depends_on = [aws_iam_role.nodes_general]
+  depends_on = [aws_eks_node_group.nodes_general]
 
   create_duration = "120s"
 ***REMOVED***
