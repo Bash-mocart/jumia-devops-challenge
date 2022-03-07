@@ -6,7 +6,7 @@ resource "aws_subnet" "public_1" {
   vpc_id = aws_vpc.main.id
 
   # The CIDR block for the subnet.
-  cidr_block = "192.168.0.0/18"
+  cidr_block = var.public_subnet_a_cidr_block
 
   # The AZ for the subnet.
   availability_zone = "eu-west-3a"
@@ -16,7 +16,7 @@ resource "aws_subnet" "public_1" {
 
   # A map of tags to assign to the resource.
   tags = {
-    Name                        = "public-us-east-1a"
+    Name                        = "eu-west-3a"
     "kubernetes.io/cluster/eks" = "shared"
     "kubernetes.io/role/elb"    = 1
   ***REMOVED***
@@ -27,7 +27,7 @@ resource "aws_subnet" "public_2" {
   vpc_id = aws_vpc.main.id
 
   # The CIDR block for the subnet.
-  cidr_block = "192.168.64.0/18"
+  cidr_block = var.public_subnet_b_cidr_block
 
   # The AZ for the subnet.
   availability_zone = "eu-west-3b"
@@ -37,7 +37,7 @@ resource "aws_subnet" "public_2" {
 
   # A map of tags to assign to the resource.
   tags = {
-    Name                        = "public-us-east-1b"
+    Name                        = "public-eu-west-3b"
     "kubernetes.io/cluster/eks" = "shared"
     "kubernetes.io/role/elb"    = 1
   ***REMOVED***
@@ -48,14 +48,14 @@ resource "aws_subnet" "private_1" {
   vpc_id = aws_vpc.main.id
 
   # The CIDR block for the subnet.
-  cidr_block = "192.168.128.0/18"
+  cidr_block = var.private_subnet_a_cidr_block
 
   # The AZ for the subnet.
   availability_zone = "eu-west-3a"
 
   # A map of tags to assign to the resource.
   tags = {
-    Name                              = "private-us-east-1a"
+    Name                              = "private-eu-west-3a"
     "kubernetes.io/cluster/eks"       = "shared"
     "kubernetes.io/role/internal-elb" = 1
   ***REMOVED***
@@ -66,14 +66,14 @@ resource "aws_subnet" "private_2" {
   vpc_id = aws_vpc.main.id
 
   # The CIDR block for the subnet.
-  cidr_block = "192.168.192.0/18"
+  cidr_block = var.private_subnet_b_cidr_block
 
   # The AZ for the subnet.
   availability_zone = "eu-west-3b"
 
   # A map of tags to assign to the resource.
   tags = {
-    Name                              = "private-us-east-1b"
+    Name                              = "private-eu-west-3b"
     "kubernetes.io/cluster/eks"       = "shared"
     "kubernetes.io/role/internal-elb" = 1
   ***REMOVED***

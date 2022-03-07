@@ -16,14 +16,14 @@ resource "aws_db_subnet_group" "database-subnet-group" {
 # Postgres RDS instance
 resource "aws_db_instance" "postgres" {
   allocated_storage    = 10
-  engine               = "postgres"
+  engine               = var.db_engine
   # engine_version       = "5.7"
-  instance_class       = "db.t3.micro"
-  db_name               = "postgres"
+  instance_class       = var.db_instance_class
+  db_name               = var.db_name
   db_subnet_group_name = aws_db_subnet_group.database-subnet-group.name
   username             = var.db_username
   password             = var.db_password
-  parameter_group_name = "default.postgres13"
+  parameter_group_name = var.db_parameter_group
   skip_final_snapshot  = true
   vpc_security_group_ids  = [aws_security_group.allow-tcp.id]
 ***REMOVED***

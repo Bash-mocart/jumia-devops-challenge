@@ -4,7 +4,7 @@
 # Create IAM role for EKS Node Group
 resource "aws_iam_role" "nodes_general" {
   # The name of the role
-  name = "eks-node-group-general"
+  name = var.eks_node_group_name
 
   # The policy that grants an entity permission to assume the role.
   assume_role_policy = <<POLICY
@@ -29,7 +29,7 @@ POLICY
 resource "aws_iam_role_policy_attachment" "amazon_eks_worker_node_policy_general" {
   # The ARN of the policy you want to apply.
   # https://github.com/SummitRoute/aws_managed_policies/blob/master/policies/AmazonEKSWorkerNodePolicy
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+  policy_arn = var.eks_iam_policy_attachment  
 
   # The role the policy should be applied to
   role = aws_iam_role.nodes_general.name
@@ -38,7 +38,7 @@ resource "aws_iam_role_policy_attachment" "amazon_eks_worker_node_policy_general
 resource "aws_iam_role_policy_attachment" "amazon_eks_cni_policy_general" {
   # The ARN of the policy you want to apply.
   # https://github.com/SummitRoute/aws_managed_policies/blob/master/policies/AmazonEKS_CNI_Policy
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+  policy_arn = var.eks_iam_cni_policy
 
   # The role the policy should be applied to
   role = aws_iam_role.nodes_general.name
@@ -47,7 +47,7 @@ resource "aws_iam_role_policy_attachment" "amazon_eks_cni_policy_general" {
 resource "aws_iam_role_policy_attachment" "amazon_ec2_container_registry_read_only" {
   # The ARN of the policy you want to apply.
   # https://github.com/SummitRoute/aws_managed_policies/blob/master/policies/AmazonEC2ContainerRegistryReadOnly
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+  policy_arn = var.amazon_ec2_container_registry_read_only
 
   # The role the policy should be applied to
   role = aws_iam_role.nodes_general.name
@@ -61,7 +61,7 @@ resource "aws_eks_node_group" "nodes_general" {
   cluster_name = aws_eks_cluster.eks.name
 
   # Name of the EKS Node Group.
-  node_group_name = "nodes-general"
+  node_group_name = var.eks_node_group_name
 
   # Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
   node_role_arn = aws_iam_role.nodes_general.arn
@@ -98,11 +98,11 @@ resource "aws_eks_node_group" "nodes_general" {
   ***REMOVED***
   # Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
   # Valid values: AL2_x86_64, AL2_x86_64_GPU, AL2_ARM_64
-  ami_type = "AL2_x86_64"
+  ami_type = var.eks_ami_type
 
   # Type of capacity associated with the EKS Node Group. 
   # Valid values: ON_DEMAND, SPOT
-  capacity_type = "ON_DEMAND"
+  capacity_type = var.eks_capacity_type
 
   # Disk size in GiB for worker nodes
   # disk_size = 20
@@ -114,11 +114,11 @@ resource "aws_eks_node_group" "nodes_general" {
   # instance_types = ["t3.small"]
 
   labels = {
-    role = "nodes-general"
+    role = var.eks_node_group_name
   ***REMOVED***
 
   # Kubernetes version
-  version = "1.19"
+  version = var.eks_version
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.
   # Otherwise, EKS will not be able to properly delete EC2 Instances and Elastic Network Interfaces.
