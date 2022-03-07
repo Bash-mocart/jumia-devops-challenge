@@ -98,7 +98,7 @@ resource "aws_lb_target_group_attachment" "nlb-attachment-443" {
 
 resource "aws_lb_target_group_attachment" "nlb-attachment-1337" {
   target_group_arn = aws_lb_target_group.front-end-allow-1337.arn
-  target_id        = aws_eks_node_group.nodes_general.arn
+  target_id        = file("instance.txt")
   port             = 1337
 ***REMOVED***
 

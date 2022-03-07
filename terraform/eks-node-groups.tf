@@ -89,6 +89,13 @@ resource "aws_eks_node_group" "nodes_general" {
     command = "aws elbv2 describe-load-balancers --query 'LoadBalancers[*]'.LoadBalancerArn --output text >> file.txt"
   ***REMOVED***
 
+  provisioner "local-exec" {
+    command = "aws ec2 describe-instances --query 'Reservations[*].Instances[*].InstanceId'  --output text >> instance.txt"
+  ***REMOVED***
+
+
+  
+
 
   # Configuration block with scaling settings
   scaling_config {
