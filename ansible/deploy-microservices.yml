@@ -52,6 +52,7 @@
           aws iam create-policy \
             --policy-name AWSLoadBalancerControllerIAMPolicy \
             --policy-document file://iam-policy.json
+    ignore_errors: yes
   
   - name: "install aws load balancer controller"
     shell: |  
