@@ -15,6 +15,32 @@ resource "aws_db_subnet_group" "database-subnet-group" {
 
 # Postgres RDS instance
 resource "aws_db_instance" "postgres" {
+
+  provisioner "local-exec" {
+    #command = "sed -i 's/spring.datasource.url.*/datasource.url=jdbc:postgresql://$DB_ADDR/$DB_NAME/'./DevOps-Challenge-main/jumia_phone_validator/validator-backend/src/resources/application.properties"
+    command = "./replace.sh"
+    environment = {
+      DB_ADDR = self.endpoint
+      DB_NAME = var.db_name
+    ***REMOVED***
+  ***REMOVED***
+  provisioner "local-exec" {
+    command = "echo yes"
+    working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
+  ***REMOVED***
+  provisioner "local-exec" {
+    command = "mvn clean install"
+    working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
+  ***REMOVED***
+  provisioner "local-exec" {
+    command = "sudo docker build -t bashox/jumia-frontend:prod ."
+    working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
+  ***REMOVED***
+  provisioner "local-exec" {
+    command = "sudo docker push bashox/jumia-frontend:prod"
+    working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
+  ***REMOVED***
+  
   allocated_storage    = 10
   engine               = var.db_engine
   # engine_version       = "5.7"
