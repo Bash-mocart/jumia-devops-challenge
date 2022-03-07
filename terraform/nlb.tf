@@ -1,8 +1,7 @@
 resource "aws_lb" "nlb" {
 
   depends_on = [time_sleep.wait_120_seconds]
-
-	
+  
   name               = "nlb"
   internal           = false
   load_balancer_type = "network"
