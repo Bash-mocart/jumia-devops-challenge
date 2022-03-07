@@ -85,18 +85,21 @@ resource "time_sleep" "wait_120_seconds" {
 ***REMOVED***
 
 resource "aws_lb_target_group_attachment" "nlb-attachment-8081" {
+  depends_on = [time_sleep.wait_120_seconds]
   target_group_arn = aws_lb_target_group.front-end-allow-8081.arn
   target_id        = file("file.txt")
   port             = 8081
 ***REMOVED***
 
 resource "aws_lb_target_group_attachment" "nlb-attachment-443" {
+  depends_on = [time_sleep.wait_120_seconds]
   target_group_arn = aws_lb_target_group.front-end-allow-443.arn
   target_id        = file("file.txt")
   port             = 443
 ***REMOVED***
 
 resource "aws_lb_target_group_attachment" "nlb-attachment-1337" {
+  depends_on = [time_sleep.wait_120_seconds]
   target_group_arn = aws_lb_target_group.front-end-allow-1337.arn
   target_id        = file("instance.txt")
   port             = 1337
