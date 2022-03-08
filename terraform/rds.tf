@@ -24,7 +24,7 @@ resource "aws_db_instance" "postgres" {
       DB_ADDR = self.endpoint
       DB_NAME = var.db_name
       DB_USERNAME = var.db_username
-      DB_USERNAME = var.db_password
+      DB_PASSWORD = var.db_password
     }
   }
   provisioner "local-exec" {
