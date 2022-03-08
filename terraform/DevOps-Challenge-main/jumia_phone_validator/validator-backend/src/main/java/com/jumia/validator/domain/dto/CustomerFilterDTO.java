@@ -14,4 +14,4 @@ public class CustomerFilterDTO {
 
     private String country;
     private StateEnum state;
-***REMOVED***
+}

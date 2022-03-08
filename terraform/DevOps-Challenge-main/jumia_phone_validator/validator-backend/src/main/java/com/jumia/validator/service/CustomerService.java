@@ -14,4 +14,4 @@ public interface CustomerService {
      * @return the list of customers
      */
     List<CustomerDTO> findAll(CustomerFilterDTO customerFilterDTO);
-***REMOVED***
+}

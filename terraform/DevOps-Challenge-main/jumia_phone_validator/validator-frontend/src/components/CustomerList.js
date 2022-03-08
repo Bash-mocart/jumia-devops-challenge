@@ -1,4 +1,4 @@
-import React, { useState, useEffect ***REMOVED*** from "react";
+import React, { useState, useEffect } from "react";
 import CustomerService from "../services/CustomerService";
 
 const CustomerList = () => {
@@ -9,23 +9,23 @@ const CustomerList = () => {
   const onChangeCountry = (e) => {
     const country = e.target.value;
     setCountry(country);
-  ***REMOVED***;
+  };
 
   const onChangeState = (e) => {
     const state = e.target.value;
     setState(state);
-  ***REMOVED***;
+  };
 
   const getRequestParams = (country, state) => {
-    let params = {***REMOVED***;
+    let params = {};
     if (country) {
       params["country"] = country;
-    ***REMOVED***
+    }
     if (state) {
       params["state"] = state;
-    ***REMOVED***
+    }
     return params;
-  ***REMOVED***;
+  };
 
   const retrieveCustomers = () => {
     const params = getRequestParams(country, state);
@@ -33,11 +33,11 @@ const CustomerList = () => {
       .then((response) => {
         setCustomers(response.data);
         console.log(customers);
-      ***REMOVED***)
+      })
       .catch((e) => {
         console.log(e);
-      ***REMOVED***);
-  ***REMOVED***;
+      });
+  };
 
   useEffect(retrieveCustomers, []);
 
@@ -45,12 +45,12 @@ const CustomerList = () => {
     <div className="list row">
       <div className="col-md-8">
         <div className="input-group mb-3">
-          <select value={state***REMOVED*** onChange={onChangeState***REMOVED***>
+          <select value={state} onChange={onChangeState}>
             <option value="">ALL</option>
             <option value="VALID">Valid</option>
             <option value="INVALID">Invalid</option>
           </select>
-          <select value={country***REMOVED*** onChange={onChangeCountry***REMOVED***>
+          <select value={country} onChange={onChangeCountry}>
             <option value="">ALL</option>
             <option value="CAMEROON">Cameroon</option>
             <option value="ETHIOPIA">Ethiopia</option>
@@ -62,7 +62,7 @@ const CustomerList = () => {
             <button
               className="btn btn-outline-secondary"
               type="button"
-              onClick={retrieveCustomers***REMOVED***
+              onClick={retrieveCustomers}
             >
               Add filter
             </button>
@@ -82,19 +82,19 @@ const CustomerList = () => {
           </thead>
           <tbody>
             {customers.map((customer) => (
-              <tr key={customer.id***REMOVED***>
-                <td>{customer.id***REMOVED***</td>
-                <td>{customer.name***REMOVED***</td>
-                <td>{customer.phone***REMOVED***</td>
-                <td>{customer.country***REMOVED***</td>
-                <td>{customer.phoneNumberState***REMOVED***</td>
+              <tr key={customer.id}>
+                <td>{customer.id}</td>
+                <td>{customer.name}</td>
+                <td>{customer.phone}</td>
+                <td>{customer.country}</td>
+                <td>{customer.phoneNumberState}</td>
               </tr>
-            ))***REMOVED***
+            ))}
           </tbody>
         </table>
       </div>
     </div>
   );
-***REMOVED***;
+};
 
 export default CustomerList;

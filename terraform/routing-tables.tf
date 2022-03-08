@@ -11,13 +11,13 @@ resource "aws_route_table" "public" {
 
     # Identifier of a VPC internet gateway or a virtual private gateway.
     gateway_id = aws_internet_gateway.main.id
-  ***REMOVED***
+  }
 
   # A map of tags to assign to the resource.
   tags = {
     Name = "public"
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 resource "aws_route_table" "private1" {
   # The VPC ID.
@@ -29,13 +29,13 @@ resource "aws_route_table" "private1" {
 
     # Identifier of a VPC NAT gateway.
     nat_gateway_id = aws_nat_gateway.gw1.id
-  ***REMOVED***
+  }
 
   # A map of tags to assign to the resource.
   tags = {
     Name = "private1"
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 resource "aws_route_table" "private2" {
   # The VPC ID.
@@ -47,13 +47,13 @@ resource "aws_route_table" "private2" {
 
     # Identifier of a VPC NAT gateway.
     nat_gateway_id = aws_nat_gateway.gw2.id
-  ***REMOVED***
+  }
 
   # A map of tags to assign to the resource.
   tags = {
     Name = "private2"
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 resource "aws_route_table" "private3" {
   # The VPC ID.
@@ -65,10 +65,10 @@ resource "aws_route_table" "private3" {
 
     # Identifier of a VPC NAT gateway.
     nat_gateway_id = aws_nat_gateway.gw3.id
-  ***REMOVED***
+  }
 
   # A map of tags to assign to the resource.
   tags = {
     Name = "private3"
-  ***REMOVED***
-***REMOVED***
+  }
+}

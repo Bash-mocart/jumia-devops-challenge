@@ -1,15 +1,14 @@
-***REMOVED***
-***REMOVED***
-  access_key = "AKIA6N7ZB2FSQRMKNFUZ"
-  secret_key = "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"
-***REMOVED***
+provider "aws" {
+  region  = "eu-west-3"
+
+}
 
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "4.4.0"
+    }
+  }
+}

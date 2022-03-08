@@ -12,8 +12,8 @@ class ValidationUtilTest {
     private static final String INVALID_NUM = "(212 698054317";
     private static final String VALID_INPUT = "(212) 698054317";
     private static final String INVALID_INPUT = "(2123) 698054317";
-    private static final String VALID_REGEX = "\\(212\\)\\ ?[5-9]\\d{8***REMOVED***$";
-    private static final String INVALID_REGEX = "\\(212\\)\\ ?[5-9]\\d{8***REMOVED***[][[$";
+    private static final String VALID_REGEX = "\\(212\\)\\ ?[5-9]\\d{8}$";
+    private static final String INVALID_REGEX = "\\(212\\)\\ ?[5-9]\\d{8}[][[$";
     private static final String EMPTY = "";
     private static final String NULL = null;
 
@@ -23,7 +23,7 @@ class ValidationUtilTest {
         String result = ValidationUtil.getCountryCode(VALID_NUM);
         assertEquals(COUNTRY_CODE, result);
 
-    ***REMOVED***
+    }
 
     @Test
     void getCountryCode_InValidNumber_ReturnNull() {
@@ -31,7 +31,7 @@ class ValidationUtilTest {
         String result = ValidationUtil.getCountryCode(INVALID_NUM);
         assertNull(result);
 
-    ***REMOVED***
+    }
 
     @Test
     void getCountryCode_NullNumber_returnNull() {
@@ -39,7 +39,7 @@ class ValidationUtilTest {
         String result = ValidationUtil.getCountryCode(NULL);
         assertNull(result);
 
-    ***REMOVED***
+    }
 
 
     @Test
@@ -48,7 +48,7 @@ class ValidationUtilTest {
         StateEnum result = ValidationUtil.validateNumber(VALID_INPUT, VALID_REGEX);
         assertEquals(StateEnum.VALID, result);
 
-    ***REMOVED***
+    }
 
     @Test
     void validateNumber_NullRegexWithValidInput_InValidState() {
@@ -56,7 +56,7 @@ class ValidationUtilTest {
         StateEnum result = ValidationUtil.validateNumber(VALID_INPUT, NULL);
         assertEquals(StateEnum.INVALID, result);
 
-    ***REMOVED***
+    }
 
     @Test
     void validateNumber_ValidRegexWithNullInput_InValidState() {
@@ -64,7 +64,7 @@ class ValidationUtilTest {
         StateEnum result = ValidationUtil.validateNumber(NULL, VALID_REGEX);
         assertEquals(StateEnum.INVALID, result);
 
-    ***REMOVED***
+    }
 
     @Test
     void validateNumber_assertNullRegexWithNullInput_InValidState() {
@@ -72,7 +72,7 @@ class ValidationUtilTest {
         StateEnum result = ValidationUtil.validateNumber(NULL, NULL);
         assertEquals(StateEnum.INVALID, result);
 
-    ***REMOVED***
+    }
 
     @Test
     void validateNumber_ValidRegexWithInvalidInput_InValidState() {
@@ -80,7 +80,7 @@ class ValidationUtilTest {
         StateEnum result = ValidationUtil.validateNumber(INVALID_INPUT, VALID_REGEX);
         assertEquals(StateEnum.INVALID, result);
 
-    ***REMOVED***
+    }
 
     @Test
     void validateNumber_InValidRegexWithValidInput_InValidState() {
@@ -88,7 +88,7 @@ class ValidationUtilTest {
         StateEnum result = ValidationUtil.validateNumber(VALID_INPUT, INVALID_REGEX);
         assertEquals(StateEnum.INVALID, result);
 
-    ***REMOVED***
+    }
 
     @Test
     void validateNumber_EmptyRegexWithValidInput_InValidState() {
@@ -96,7 +96,7 @@ class ValidationUtilTest {
         StateEnum result = ValidationUtil.validateNumber(EMPTY, INVALID_INPUT);
         assertEquals(StateEnum.INVALID, result);
 
-    ***REMOVED***
+    }
 
     @Test
     void isParametersValid_EmptyRegexWithEmptyInput_False() {
@@ -104,7 +104,7 @@ class ValidationUtilTest {
         boolean result = ValidationUtil.isParametersValid(EMPTY, EMPTY);
         assertFalse(result);
 
-    ***REMOVED***
+    }
 
     @Test
     void isParametersValid_ValidRegexWithValidInput_True() {
@@ -112,7 +112,7 @@ class ValidationUtilTest {
         boolean result = ValidationUtil.isParametersValid(INVALID_INPUT, VALID_REGEX);
         assertTrue(result);
 
-    ***REMOVED***
+    }
 
     @Test
     void isParametersValid_EmptyRegexWithNullInput_False() {
@@ -120,6 +120,6 @@ class ValidationUtilTest {
         boolean result = ValidationUtil.isParametersValid(NULL, EMPTY);
         assertFalse(result);
 
-    ***REMOVED***
+    }
 
-***REMOVED***
+}

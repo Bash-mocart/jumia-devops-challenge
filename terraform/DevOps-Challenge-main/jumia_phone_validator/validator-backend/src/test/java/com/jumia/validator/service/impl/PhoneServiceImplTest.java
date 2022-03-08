@@ -27,7 +27,7 @@ class PhoneServiceImplTest {
         countryService = Mockito.mock(CountryService.class);
         phoneService = new PhoneServiceImpl(countryService);
         phoneServiceSpy = Mockito.spy(phoneService);
-    ***REMOVED***
+    }
 
     @Test
     void getPhoneNumberState_ValidPhoneNumberWithValidCountry_ValidState() {
@@ -39,7 +39,7 @@ class PhoneServiceImplTest {
 
         assertNotNull(result);
         assertEquals(StateEnum.VALID, result);
-    ***REMOVED***
+    }
 
     @Test
     void getPhoneNumberState_ValidPhoneNumberWithInValidCountry_InvalidState() {
@@ -49,7 +49,7 @@ class PhoneServiceImplTest {
 
         assertNotNull(result);
         assertEquals(StateEnum.INVALID, result);
-    ***REMOVED***
+    }
 
     @Test
     void getPhoneNumberState_NullPhoneNumberWithNullCountry_InvalidState() {
@@ -62,7 +62,7 @@ class PhoneServiceImplTest {
 
         assertNotNull(result);
         assertEquals(StateEnum.INVALID, result);
-    ***REMOVED***
+    }
 
     @Test
     void getPhoneNumberState_NullPhoneNumberWithValidCountry_InValidState() {
@@ -73,5 +73,5 @@ class PhoneServiceImplTest {
 
         assertNotNull(result);
         assertEquals(StateEnum.INVALID, result);
-    ***REMOVED***
-***REMOVED***
+    }
+}

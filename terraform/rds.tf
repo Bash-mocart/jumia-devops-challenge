@@ -11,8 +11,8 @@ resource "aws_db_subnet_group" "database-subnet-group" {
 
   tags   = {
     Name = "Database Subnets"
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 # Postgres RDS instance
 resource "aws_db_instance" "postgres" {
@@ -23,23 +23,23 @@ resource "aws_db_instance" "postgres" {
     environment = {
       DB_ADDR = self.endpoint
       DB_NAME = var.db_name
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   # provisioner "local-exec" {
   #   command = "echo yes"
   #   working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
-  # ***REMOVED***
+  # }
   # provisioner "local-exec" {
   #   command = "mvn clean install"
   #   working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
-  # ***REMOVED***
+  # }
   # provisioner "local-exec" {
   #   working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
-  # ***REMOVED***
+  # }
   # provisioner "local-exec" {
   #   command = "sudo docker push bashox/jumia-frontend:prod"
   #   working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
-  # ***REMOVED***
+  # }
   
   allocated_storage    = 10
   engine               = var.db_engine
@@ -52,7 +52,7 @@ resource "aws_db_instance" "postgres" {
   parameter_group_name = var.db_parameter_group
   skip_final_snapshot  = true
   vpc_security_group_ids  = [aws_security_group.allow-tcp.id]
-***REMOVED***
+}
 
 #Postgres RDS security group
 
@@ -63,8 +63,8 @@ resource "aws_security_group" "allow-tcp" {
 
   tags = {
     Name = "security group db"
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 #Postgres RDS security group rule
 
@@ -76,7 +76,7 @@ resource "aws_security_group_rule" "db-security-group-rule-allow-22" {
   cidr_blocks              = [aws_vpc.main.cidr_block]
   to_port                  = 22
   type                     = "ingress"
-***REMOVED***
+}
 
 #Postgres RDS security group rules
 
@@ -88,7 +88,7 @@ resource "aws_security_group_rule" "db-security-group-rule-allow-1337" {
   cidr_blocks              = [aws_vpc.main.cidr_block]
   to_port                  = 1337
   type                     = "ingress"
-***REMOVED***
+}
 
 resource "aws_security_group_rule" "db-security-group-rule-allow-5432" {
   description              = "Allow port 1337 nodes to communicate with control plane (all ports)"
@@ -98,7 +98,7 @@ resource "aws_security_group_rule" "db-security-group-rule-allow-5432" {
   cidr_blocks              = [aws_vpc.main.cidr_block]
   to_port                  = 5432
   type                     = "ingress"
-***REMOVED***
+}
 
 resource "aws_security_group_rule" "outgoing" {
   description              = "Allow all outgoing"
@@ -108,4 +108,4 @@ resource "aws_security_group_rule" "outgoing" {
   cidr_blocks              = [aws_vpc.main.cidr_block]
   to_port                  = 0
   type                     = "egress"
-***REMOVED***
+}

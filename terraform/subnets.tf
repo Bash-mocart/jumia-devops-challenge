@@ -19,8 +19,8 @@ resource "aws_subnet" "public_1" {
     Name                        = "eu-west-3a"
     "kubernetes.io/cluster/eks" = "shared"
     "kubernetes.io/role/elb"    = 1
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 resource "aws_subnet" "public_2" {
   # The VPC ID
@@ -40,8 +40,8 @@ resource "aws_subnet" "public_2" {
     Name                        = "public-eu-west-3b"
     "kubernetes.io/cluster/eks" = "shared"
     "kubernetes.io/role/elb"    = 1
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 
 resource "aws_subnet" "public_3" {
@@ -62,8 +62,8 @@ resource "aws_subnet" "public_3" {
     Name                        = "public-eu-west-3c"
     "kubernetes.io/cluster/eks" = "shared"
     "kubernetes.io/role/elb"    = 1
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 
 resource "aws_subnet" "private_1" {
@@ -81,8 +81,8 @@ resource "aws_subnet" "private_1" {
     Name                              = "private-eu-west-3a"
     "kubernetes.io/cluster/eks"       = "shared"
     "kubernetes.io/role/internal-elb" = 1
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 resource "aws_subnet" "private_2" {
   # The VPC ID
@@ -99,8 +99,8 @@ resource "aws_subnet" "private_2" {
     Name                              = "private-eu-west-3b"
     "kubernetes.io/cluster/eks"       = "shared"
     "kubernetes.io/role/internal-elb" = 1
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 resource "aws_subnet" "private_3" {
   # The VPC ID
@@ -117,6 +117,6 @@ resource "aws_subnet" "private_3" {
     Name                              = "private-eu-west-3c"
     "kubernetes.io/cluster/eks"       = "shared"
     "kubernetes.io/role/internal-elb" = 1
-  ***REMOVED***
-***REMOVED***
+  }
+}
 

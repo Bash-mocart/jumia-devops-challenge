@@ -1,9 +1,9 @@
 import http from "../http-common";
 
 const getAll = (params) => {
-  return http.get("/customers", { params ***REMOVED***);
-***REMOVED***;
+  return http.get("/customers", { params });
+};
 
 export default {
   getAll,
-***REMOVED***;
+};

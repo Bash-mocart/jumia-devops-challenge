@@ -7,7 +7,7 @@ resource "aws_route_table_association" "public1" {
 
   # The ID of the routing table to associate with.
   route_table_id = aws_route_table.public.id
-***REMOVED***
+}
 
 resource "aws_route_table_association" "public2" {
   # The subnet ID to create an association.
@@ -15,7 +15,7 @@ resource "aws_route_table_association" "public2" {
 
   # The ID of the routing table to associate with.
   route_table_id = aws_route_table.public.id
-***REMOVED***
+}
 
 resource "aws_route_table_association" "public3" {
   # The subnet ID to create an association.
@@ -23,7 +23,7 @@ resource "aws_route_table_association" "public3" {
 
   # The ID of the routing table to associate with.
   route_table_id = aws_route_table.public.id
-***REMOVED***
+}
 
 resource "aws_route_table_association" "private1" {
   # The subnet ID to create an association.
@@ -31,7 +31,7 @@ resource "aws_route_table_association" "private1" {
 
   # The ID of the routing table to associate with.
   route_table_id = aws_route_table.private1.id
-***REMOVED***
+}
 
 resource "aws_route_table_association" "private2" {
   # The subnet ID to create an association.
@@ -39,7 +39,7 @@ resource "aws_route_table_association" "private2" {
 
   # The ID of the routing table to associate with.
   route_table_id = aws_route_table.private2.id
-***REMOVED***
+}
 
 resource "aws_route_table_association" "private3" {
   # The subnet ID to create an association.
@@ -47,4 +47,4 @@ resource "aws_route_table_association" "private3" {
 
   # The ID of the routing table to associate with.
   route_table_id = aws_route_table.private3.id
-***REMOVED***
+}

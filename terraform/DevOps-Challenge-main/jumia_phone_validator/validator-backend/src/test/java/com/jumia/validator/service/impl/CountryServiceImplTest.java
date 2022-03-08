@@ -21,7 +21,7 @@ class CountryServiceImplTest {
     void init() {
         countryService = new CountryServiceImpl();
         countryServiceSpy = Mockito.spy(countryService);
-    ***REMOVED***
+    }
 
 
     @Test
@@ -30,14 +30,14 @@ class CountryServiceImplTest {
         CountryEnum result = countryServiceSpy.findByName(COUNTRY.getName());
         assertNotNull(result);
         assertEquals(COUNTRY, result);
-    ***REMOVED***
+    }
 
     @Test
     void findByName_InValidName_ReturnNull() {
 
         CountryEnum result = countryServiceSpy.findByName(INVALID_NAME);
         assertNull(result);
-    ***REMOVED***
+    }
 
     @Test
     void findByName_NullName_ReturnNull() {
@@ -45,7 +45,7 @@ class CountryServiceImplTest {
         String name = null;
         CountryEnum result = countryServiceSpy.findByName(name);
         assertNull(result);
-    ***REMOVED***
+    }
 
     @Test
     void findByPhoneNumber_ValidPhoneNumber_CorrectEnum() {
@@ -55,7 +55,7 @@ class CountryServiceImplTest {
         CountryEnum result = countryServiceSpy.findByPhoneNumber(PHONE_NUMBER);
         assertNotNull(result);
         assertEquals(COUNTRY, result);
-    ***REMOVED***
+    }
 
     @Test
     void findByPhoneNumber_InValidPhoneNumber_ReturnNull() {
@@ -64,7 +64,7 @@ class CountryServiceImplTest {
         doReturn(null).when(countryServiceSpy).getCountryByCode(COUNTRY.getPhoneCode());
         CountryEnum result = countryServiceSpy.findByPhoneNumber(PHONE_NUMBER);
         assertNull(result);
-    ***REMOVED***
+    }
 
     @Test
     void findByPhoneNumber_NullPhoneNumber_ReturnNull() {
@@ -73,14 +73,14 @@ class CountryServiceImplTest {
         doReturn(null).when(countryServiceSpy).getCountryByCode(COUNTRY.getPhoneCode());
         CountryEnum result = countryServiceSpy.findByPhoneNumber(null);
         assertNull(result);
-    ***REMOVED***
+    }
 
     @Test
     void getCountryByCode_NullCode_ReturnNull() {
 
         CountryEnum result = countryServiceSpy.getCountryByCode(null);
         assertNull(result);
-    ***REMOVED***
+    }
 
     @Test
     void getCountryByCode_ValidCode_CorrectCountry() {
@@ -88,5 +88,5 @@ class CountryServiceImplTest {
         CountryEnum result = countryServiceSpy.getCountryByCode(COUNTRY.getPhoneCode());
         assertNotNull(result);
         assertEquals(COUNTRY, result);
-    ***REMOVED***
-***REMOVED***
+    }
+}

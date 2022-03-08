@@ -20,7 +20,7 @@ public class ValidationUtil {
 
     public String getCountryCode(String number) {
         return StringUtils.substringBetween(number, "(", ")");
-    ***REMOVED***
+    }
 
     /**
      * Validate input string with a regex
@@ -33,14 +33,14 @@ public class ValidationUtil {
         try {
             if (isParametersValid(Number, regex) && Pattern.matches(regex, Number)) {
                 return StateEnum.VALID;
-            ***REMOVED***
-        ***REMOVED*** catch (PatternSyntaxException e) {
-            log.error("Error in validating regex {***REMOVED***", e);
-        ***REMOVED***
+            }
+        } catch (PatternSyntaxException e) {
+            log.error("Error in validating regex {}", e);
+        }
         return StateEnum.INVALID;
-    ***REMOVED***
+    }
 
     boolean isParametersValid(String input, String regex) {
         return StringUtils.isNoneEmpty(input) && StringUtils.isNoneEmpty(regex);
-    ***REMOVED***
-***REMOVED***
+    }
+}

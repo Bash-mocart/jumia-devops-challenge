@@ -16,20 +16,20 @@ resource "aws_iam_role" "eks_cluster" {
       "Effect": "Allow",
       "Principal": {
         "Service": "eks.amazonaws.com"
-      ***REMOVED***,
+      },
       "Action": "sts:AssumeRole"
-    ***REMOVED***,
+    },
     {
       "Effect": "Allow",
       "Principal": {
         "Service": "ec2.amazonaws.com"
-      ***REMOVED***,
+      },
       "Action": "sts:AssumeRole"
-    ***REMOVED***
+    }
   ]
-***REMOVED***
+}
 POLICY
-***REMOVED***
+}
 
 # Resource: aws_iam_role_policy_attachment
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment
@@ -41,7 +41,7 @@ resource "aws_iam_role_policy_attachment" "amazon_eks_cluster_policy" {
 
   # The role the policy should be applied to
   role = aws_iam_role.eks_cluster.name
-***REMOVED***
+}
 
 # Resource: aws_eks_cluster
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster
@@ -76,11 +76,11 @@ resource "aws_eks_cluster" "eks" {
       aws_subnet.private_2.id,
       aws_subnet.private_3.id
     ]
-  ***REMOVED***
+  }
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Cluster handling.
   # Otherwise, EKS will not be able to properly delete EKS managed EC2 infrastructure such as Security Groups.
   depends_on = [
     aws_iam_role_policy_attachment.amazon_eks_cluster_policy
   ]
-***REMOVED***
+}

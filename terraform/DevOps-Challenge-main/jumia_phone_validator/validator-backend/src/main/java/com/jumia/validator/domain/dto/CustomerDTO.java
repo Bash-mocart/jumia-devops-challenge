@@ -17,4 +17,4 @@ public class CustomerDTO {
     private String phone;
     private String country;
     private StateEnum phoneNumberState;
-***REMOVED***
+}

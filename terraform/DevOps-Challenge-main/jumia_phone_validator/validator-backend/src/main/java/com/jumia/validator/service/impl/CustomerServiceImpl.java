@@ -43,55 +43,55 @@ public class CustomerServiceImpl implements CustomerService {
         customers = filterCustomersList(customers, customerFilterDTO);
 
         return customers;
-    ***REMOVED***
+    }
 
     void fillCustomerFields(List<CustomerDTO> customers) {
         fillCustomersCountries(customers);
         fillCustomersPhoneNumbersState(customers);
-    ***REMOVED***
+    }
 
     List<CustomerDTO> getCustomersDTO(List<Customer> customers) {
 
         return customerMapper.CustomersToCustomersDto(customers);
-    ***REMOVED***
+    }
 
     void fillCustomersCountries(List<CustomerDTO> customers) {
         customers.stream()
                 .map(this::getCustomerCountry).collect(Collectors.toList());
-    ***REMOVED***
+    }
 
     void fillCustomersPhoneNumbersState(List<CustomerDTO> customers) {
         customers.stream()
                 .map(this::getCustomerPhoneNumberState).collect(Collectors.toList());
-    ***REMOVED***
+    }
 
     CustomerDTO getCustomerCountry(CustomerDTO customer) {
         CountryEnum country = countryService.findByPhoneNumber(customer.getPhone());
         if (country == null) {
             return customer;
-        ***REMOVED***
+        }
         customer.setCountry(country.getName());
         return customer;
-    ***REMOVED***
+    }
 
     CustomerDTO getCustomerPhoneNumberState(CustomerDTO customer) {
         StateEnum stateEnum = phoneService.getPhoneNumberState(customer.getPhone(), customer.getCountry());
         customer.setPhoneNumberState(stateEnum);
         return customer;
-    ***REMOVED***
+    }
 
     List<CustomerDTO> filterCustomersList(List<CustomerDTO> customers, CustomerFilterDTO customerFilterDTO) {
         return customers.stream()
                 .filter(getCountryFilterPredicate(customerFilterDTO))
                 .filter(getStateFilterPredicate(customerFilterDTO))
                 .collect(Collectors.toList());
-    ***REMOVED***
+    }
 
     Predicate<CustomerDTO> getStateFilterPredicate(CustomerFilterDTO customerFilterDTO) {
         return customer -> customerFilterDTO.getState() == null || customer.getPhoneNumberState().equals(customerFilterDTO.getState());
-    ***REMOVED***
+    }
 
     Predicate<CustomerDTO> getCountryFilterPredicate(CustomerFilterDTO customerFilterDTO) {
         return customer -> StringUtils.isEmpty(customerFilterDTO.getCountry()) || StringUtils.equalsIgnoreCase(customer.getCountry(), customerFilterDTO.getCountry());
-    ***REMOVED***
-***REMOVED***
+    }
+}

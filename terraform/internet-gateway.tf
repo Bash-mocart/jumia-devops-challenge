@@ -8,5 +8,5 @@ resource "aws_internet_gateway" "main" {
   # A map of tags to assign to the resource.
   tags = {
     Name = "main"
-  ***REMOVED***
-***REMOVED***
+  }
+}

@@ -14,6 +14,6 @@ function App() {
       </div>
     </div>
   );
-***REMOVED***
+}
 
 export default App;

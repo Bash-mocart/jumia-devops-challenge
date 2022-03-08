@@ -46,7 +46,7 @@ class CustomerServiceImplTest {
         phoneService = Mockito.mock(PhoneService.class);
         customerService = new CustomerServiceImpl(customerRepository, countryService, phoneService, customerMapper);
         customerServiceSpy = Mockito.spy(customerService);
-    ***REMOVED***
+    }
 
     @Test
     void findAll_ValidList() {
@@ -60,7 +60,7 @@ class CustomerServiceImplTest {
         assertEquals(customers.size(), result.size());
         assertEquals(customers, result);
 
-    ***REMOVED***
+    }
 
     @Test
     void findAll_ValidListWithNullFilters() {
@@ -74,7 +74,7 @@ class CustomerServiceImplTest {
         assertEquals(customers.size(), result.size());
         assertEquals(customers, result);
 
-    ***REMOVED***
+    }
 
     @Test
     void fillCustomerFields_ValidCalling() {
@@ -86,7 +86,7 @@ class CustomerServiceImplTest {
         verify(customerServiceSpy, times(1)).fillCustomersCountries(customers);
         verify(customerServiceSpy, times(1)).fillCustomersPhoneNumbersState(customers);
 
-    ***REMOVED***
+    }
 
     @Test
     void getCustomersDTO_ValidCalling() {
@@ -96,7 +96,7 @@ class CustomerServiceImplTest {
         doReturn(customersDTO).when(customerMapper).CustomersToCustomersDto(customers);
         List<CustomerDTO> result = customerServiceSpy.getCustomersDTO(customers);
         verify(customerMapper, times(1)).CustomersToCustomersDto(customers);
-    ***REMOVED***
+    }
 
     @Test
     void fillCustomersCountries_ValidCountry() {
@@ -107,7 +107,7 @@ class CustomerServiceImplTest {
         verify(customerServiceSpy, times(customers.size())).getCustomerCountry(any());
         customers.forEach(customer -> assertEquals(COUNTRY.getName(), customer.getCountry()));
 
-    ***REMOVED***
+    }
 
     @Test
     void fillCustomersCountries_InValidCountry() {
@@ -118,7 +118,7 @@ class CustomerServiceImplTest {
         verify(customerServiceSpy, times(customers.size())).getCustomerCountry(any());
         customers.forEach(customer -> assertNull( customer.getCountry()));
 
-    ***REMOVED***
+    }
 
     @Test
     void fillCustomersPhoneNumbersState_ValidCountry() {
@@ -129,7 +129,7 @@ class CustomerServiceImplTest {
         verify(customerServiceSpy, times(customers.size())).getCustomerPhoneNumberState(any());
         customers.forEach(customer -> assertEquals(StateEnum.VALID, customer.getPhoneNumberState()));
 
-    ***REMOVED***
+    }
 
     @Test
     void fillCustomersPhoneNumbersState_InValidCountry() {
@@ -140,7 +140,7 @@ class CustomerServiceImplTest {
         verify(customerServiceSpy, times(customers.size())).getCustomerPhoneNumberState(any());
         customers.forEach(customer -> assertEquals(StateEnum.INVALID, customer.getPhoneNumberState()));
 
-    ***REMOVED***
+    }
 
     @Test
     void filterCustomersList_CountryFilter() {
@@ -151,7 +151,7 @@ class CustomerServiceImplTest {
         verify(customerServiceSpy, times(1)).getCountryFilterPredicate(FILTER_CAMEROON);
         assertEquals(2, result.size());
 
-    ***REMOVED***
+    }
 
     @Test
     void filterCustomersList_StateFilter() {
@@ -162,7 +162,7 @@ class CustomerServiceImplTest {
         verify(customerServiceSpy, times(1)).getCountryFilterPredicate(FILTER_VALID);
         assertEquals(1, result.size());
 
-    ***REMOVED***
+    }
 
     @Test
     void filterCustomersList_StateAndCountryFilter() {
@@ -173,7 +173,7 @@ class CustomerServiceImplTest {
         verify(customerServiceSpy, times(1)).getCountryFilterPredicate(FILTER_CAMEROON_INVALID);
         assertEquals(1, result.size());
 
-    ***REMOVED***
+    }
 
     @Test
     void filterCustomersList_EmptyFilter() {
@@ -184,7 +184,7 @@ class CustomerServiceImplTest {
         verify(customerServiceSpy, times(1)).getCountryFilterPredicate(EMPTY_FILTER);
         assertEquals(2, result.size());
 
-    ***REMOVED***
+    }
 
     private List<CustomerDTO> getCustomerListToFilter() {
 
@@ -194,7 +194,7 @@ class CustomerServiceImplTest {
                 CustomerDTO.builder().id(2L).name("Ali").phone("(212) 6007989253")
                         .country("Cameroon").phoneNumberState(StateEnum.INVALID).build()));
 
-    ***REMOVED***
+    }
 
     private List<CustomerDTO> getCustomersList() {
 
@@ -202,6 +202,6 @@ class CustomerServiceImplTest {
                 CustomerDTO.builder().id(1L).name("mohamed").phone("(212) 6007989253").build(),
                 CustomerDTO.builder().id(2L).name("Ali").phone("(212) 6007989253").build()));
 
-    ***REMOVED***
+    }
 
-***REMOVED***
+}

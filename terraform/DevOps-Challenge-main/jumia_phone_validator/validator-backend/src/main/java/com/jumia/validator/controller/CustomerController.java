@@ -32,7 +32,7 @@ public class CustomerController {
     @ApiOperation(value = "get all the filtered customers")
     @GetMapping("")
     public ResponseEntity<List<CustomerDTO>> getCustomers(CustomerFilterDTO customerFilterDTO) {
-        log.info("REST request to get a list of customers with filters {***REMOVED***", customerFilterDTO);
+        log.info("REST request to get a list of customers with filters {}", customerFilterDTO);
         return ResponseEntity.ok(customerService.findAll(customerFilterDTO));
-    ***REMOVED***
-***REMOVED***
+    }
+}

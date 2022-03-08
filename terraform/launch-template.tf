@@ -10,4 +10,4 @@ resource "aws_launch_template" "eks-nodes-launch" {
 
 
   user_data = filebase64("script.sh")
-***REMOVED***
+}

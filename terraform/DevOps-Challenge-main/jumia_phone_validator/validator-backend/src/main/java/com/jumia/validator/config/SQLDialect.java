@@ -38,100 +38,100 @@ public class SQLDialect extends Dialect {
         registerFunction("mod", new SQLFunctionTemplate(StringType.INSTANCE, "?1 % ?2"));
         registerFunction("substr", new StandardSQLFunction("substr", StringType.INSTANCE));
         registerFunction("substring", new StandardSQLFunction("substr", StringType.INSTANCE));
-    ***REMOVED***
+    }
 
     public boolean supportsIdentityColumns() {
         return true;
-    ***REMOVED***
+    }
 
     public boolean hasDataTypeInIdentityColumn() {
         return false; // As specify in NHibernate dialect
-    ***REMOVED***
+    }
 
     public String getIdentityColumnString() {
         // return "integer primary key autoincrement";
         return "integer";
-    ***REMOVED***
+    }
 
     public String getIdentitySelectString() {
         return "select last_insert_rowid()";
-    ***REMOVED***
+    }
 
     public boolean supportsLimit() {
         return true;
-    ***REMOVED***
+    }
 
     protected String getLimitString(String query, boolean hasOffset) {
         return new StringBuffer(query.length() + 20).append(query).append(hasOffset ? " limit ? offset ?" : " limit ?")
                 .toString();
-    ***REMOVED***
+    }
 
     public boolean supportsTemporaryTables() {
         return true;
-    ***REMOVED***
+    }
 
     public String getCreateTemporaryTableString() {
         return "create temporary table if not exists";
-    ***REMOVED***
+    }
 
     public boolean dropTemporaryTableAfterUse() {
         return false;
-    ***REMOVED***
+    }
 
     public boolean supportsCurrentTimestampSelection() {
         return true;
-    ***REMOVED***
+    }
 
     public boolean isCurrentTimestampSelectStringCallable() {
         return false;
-    ***REMOVED***
+    }
 
     public String getCurrentTimestampSelectString() {
         return "select current_timestamp";
-    ***REMOVED***
+    }
 
     public boolean supportsUnionAll() {
         return true;
-    ***REMOVED***
+    }
 
     public boolean hasAlterTable() {
         return false; // As specify in NHibernate dialect
-    ***REMOVED***
+    }
 
     public boolean dropConstraints() {
         return false;
-    ***REMOVED***
+    }
 
     public String getAddColumnString() {
         return "add column";
-    ***REMOVED***
+    }
 
     public String getForUpdateString() {
         return "";
-    ***REMOVED***
+    }
 
     public boolean supportsOuterJoinForUpdate() {
         return false;
-    ***REMOVED***
+    }
 
     public String getDropForeignKeyString() {
         throw new UnsupportedOperationException("No drop foreign key syntax supported by SQLiteDialect");
-    ***REMOVED***
+    }
 
     public String getAddForeignKeyConstraintString(String constraintName, String[] foreignKey, String referencedTable,
                                                    String[] primaryKey, boolean referencesPrimaryKey) {
         throw new UnsupportedOperationException("No add foreign key syntax supported by SQLiteDialect");
-    ***REMOVED***
+    }
 
     public String getAddPrimaryKeyConstraintString(String constraintName) {
         throw new UnsupportedOperationException("No add primary key syntax supported by SQLiteDialect");
-    ***REMOVED***
+    }
 
     public boolean supportsIfExistsBeforeTableName() {
         return true;
-    ***REMOVED***
+    }
 
     public boolean supportsCascadeDelete() {
         return false;
-    ***REMOVED***
-***REMOVED***
+    }
+}

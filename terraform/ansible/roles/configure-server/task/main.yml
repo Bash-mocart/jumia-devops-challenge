@@ -11,7 +11,7 @@
   become: yes
   ufw:
     rule: allow
-    port: '{{ item ***REMOVED******REMOVED***'
+    port: '{{ item }}'
     proto: tcp 
   with_items:
     - 80

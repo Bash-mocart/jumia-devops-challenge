@@ -15,13 +15,13 @@ resource "aws_iam_role" "nodes_general" {
       "Effect": "Allow",
       "Principal": {
         "Service": "ec2.amazonaws.com"
-      ***REMOVED***, 
+      }, 
       "Action": "sts:AssumeRole"
-    ***REMOVED***
+    }
   ]
-***REMOVED***
+}
 POLICY
-***REMOVED***
+}
 
 # Resource: aws_iam_role_policy_attachment
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment
@@ -33,7 +33,7 @@ resource "aws_iam_role_policy_attachment" "amazon_eks_worker_node_policy_general
 
   # The role the policy should be applied to
   role = aws_iam_role.nodes_general.name
-***REMOVED***
+}
 
 resource "aws_iam_role_policy_attachment" "amazon_eks_cni_policy_general" {
   # The ARN of the policy you want to apply.
@@ -42,7 +42,7 @@ resource "aws_iam_role_policy_attachment" "amazon_eks_cni_policy_general" {
 
   # The role the policy should be applied to
   role = aws_iam_role.nodes_general.name
-***REMOVED***
+}
 
 resource "aws_iam_role_policy_attachment" "amazon_ec2_container_registry_read_only" {
   # The ARN of the policy you want to apply.
@@ -51,7 +51,7 @@ resource "aws_iam_role_policy_attachment" "amazon_ec2_container_registry_read_on
 
   # The role the policy should be applied to
   role = aws_iam_role.nodes_general.name
-***REMOVED***
+}
 
 # Resource: aws_eks_node_group
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_node_group
@@ -82,12 +82,12 @@ resource "aws_eks_node_group" "nodes_general" {
     environment = {
       ACCOUNT_ID = var.account_id
       CLUSTER_NAME = var.eks_cluster
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
 
   provisioner "local-exec" {
     command = "echo -n $(aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters Name=instance-state-name,Values=running --output text) > instance"
-  ***REMOVED***
+  }
 
 
   
@@ -103,17 +103,17 @@ resource "aws_eks_node_group" "nodes_general" {
 
     # Minimum number of worker nodes.
     min_size = 1
-  ***REMOVED***
+  }
   # allowing remote connection
   # remote_access {
   #   ec2_ssh_key = "bashir"
   #   source_security_group_ids = [ aws_eks_cluster.eks.vpc_config[0].cluster_security_group_id ]
-  # ***REMOVED***
+  # }
 
   launch_template {
     id = aws_launch_template.eks-nodes-launch.id
     version = aws_launch_template.eks-nodes-launch.latest_version
-  ***REMOVED***
+  }
   # Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
   # Valid values: AL2_x86_64, AL2_x86_64_GPU, AL2_ARM_64
   ami_type = var.eks_ami_type
@@ -133,7 +133,7 @@ resource "aws_eks_node_group" "nodes_general" {
 
   labels = {
     role = var.eks_node_group_name
-  ***REMOVED***
+  }
 
   # Kubernetes version
   version = var.eks_version
@@ -145,4 +145,4 @@ resource "aws_eks_node_group" "nodes_general" {
     aws_iam_role_policy_attachment.amazon_eks_cni_policy_general,
     aws_iam_role_policy_attachment.amazon_ec2_container_registry_read_only,
   ]
-***REMOVED***
+}

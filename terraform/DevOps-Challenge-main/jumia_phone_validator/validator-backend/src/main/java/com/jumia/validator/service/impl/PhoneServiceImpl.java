@@ -29,13 +29,13 @@ public class PhoneServiceImpl implements PhoneService {
         CountryEnum countryEnum = countryService.findByName(country);
         if (countryEnum == null) {
             return StateEnum.INVALID;
-        ***REMOVED***
+        }
         return validatePhoneNumber(phoneNumber, countryEnum);
-    ***REMOVED***
+    }
 
     StateEnum validatePhoneNumber(String phoneNumber, CountryEnum countryEnum) {
         String phoneNumberRegex = countryEnum.getPhoneRegex();
         return ValidationUtil.validateNumber(phoneNumber, phoneNumberRegex);
-    ***REMOVED***
+    }
 
-***REMOVED***
+}

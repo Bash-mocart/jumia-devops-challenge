@@ -12,8 +12,8 @@ resource "aws_nat_gateway" "gw1" {
   # A map of tags to assign to the resource.
   tags = {
     Name = "NAT 1"
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 resource "aws_nat_gateway" "gw2" {
   # The Allocation ID of the Elastic IP address for the gateway.
@@ -25,8 +25,8 @@ resource "aws_nat_gateway" "gw2" {
   # A map of tags to assign to the resource.
   tags = {
     Name = "NAT 2"
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 resource "aws_nat_gateway" "gw3" {
   # The Allocation ID of the Elastic IP address for the gateway.
@@ -38,5 +38,5 @@ resource "aws_nat_gateway" "gw3" {
   # A map of tags to assign to the resource.
   tags = {
     Name = "NAT 3"
-  ***REMOVED***
-***REMOVED***
+  }
+}

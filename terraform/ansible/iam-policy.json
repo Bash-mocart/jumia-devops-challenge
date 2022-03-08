@@ -10,9 +10,9 @@
             "Condition": {
                 "StringEquals": {
                     "iam:AWSServiceName": "elasticloadbalancing.amazonaws.com"
-                ***REMOVED***
-            ***REMOVED***
-        ***REMOVED***,
+                }
+            }
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -41,7 +41,7 @@
                 "elasticloadbalancing:DescribeTags"
             ],
             "Resource": "*"
-        ***REMOVED***,
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -64,7 +64,7 @@
                 "shield:DeleteProtection"
             ],
             "Resource": "*"
-        ***REMOVED***,
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -72,14 +72,14 @@
                 "ec2:RevokeSecurityGroupIngress"
             ],
             "Resource": "*"
-        ***REMOVED***,
+        },
         {
             "Effect": "Allow",
             "Action": [
                 "ec2:CreateSecurityGroup"
             ],
             "Resource": "*"
-        ***REMOVED***,
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -89,12 +89,12 @@
             "Condition": {
                 "StringEquals": {
                     "ec2:CreateAction": "CreateSecurityGroup"
-                ***REMOVED***,
+                },
                 "Null": {
                     "aws:RequestTag/elbv2.k8s.aws/cluster": "false"
-                ***REMOVED***
-            ***REMOVED***
-        ***REMOVED***,
+                }
+            }
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -106,9 +106,9 @@
                 "Null": {
                     "aws:RequestTag/elbv2.k8s.aws/cluster": "true",
                     "aws:ResourceTag/elbv2.k8s.aws/cluster": "false"
-                ***REMOVED***
-            ***REMOVED***
-        ***REMOVED***,
+                }
+            }
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -120,9 +120,9 @@
             "Condition": {
                 "Null": {
                     "aws:ResourceTag/elbv2.k8s.aws/cluster": "false"
-                ***REMOVED***
-            ***REMOVED***
-        ***REMOVED***,
+                }
+            }
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -133,9 +133,9 @@
             "Condition": {
                 "Null": {
                     "aws:RequestTag/elbv2.k8s.aws/cluster": "false"
-                ***REMOVED***
-            ***REMOVED***
-        ***REMOVED***,
+                }
+            }
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -145,7 +145,7 @@
                 "elasticloadbalancing:DeleteRule"
             ],
             "Resource": "*"
-        ***REMOVED***,
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -161,9 +161,9 @@
                 "Null": {
                     "aws:RequestTag/elbv2.k8s.aws/cluster": "true",
                     "aws:ResourceTag/elbv2.k8s.aws/cluster": "false"
-                ***REMOVED***
-            ***REMOVED***
-        ***REMOVED***,
+                }
+            }
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -176,7 +176,7 @@
                 "arn:aws:elasticloadbalancing:*:*:listener-rule/net/*/*/*",
                 "arn:aws:elasticloadbalancing:*:*:listener-rule/app/*/*/*"
             ]
-        ***REMOVED***,
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -193,9 +193,9 @@
             "Condition": {
                 "Null": {
                     "aws:ResourceTag/elbv2.k8s.aws/cluster": "false"
-                ***REMOVED***
-            ***REMOVED***
-        ***REMOVED***,
+                }
+            }
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -203,7 +203,7 @@
                 "elasticloadbalancing:DeregisterTargets"
             ],
             "Resource": "arn:aws:elasticloadbalancing:*:*:targetgroup/*/*"
-        ***REMOVED***,
+        },
         {
             "Effect": "Allow",
             "Action": [
@@ -214,6 +214,6 @@
                 "elasticloadbalancing:ModifyRule"
             ],
             "Resource": "*"
-        ***REMOVED***
+        }
     ]
-***REMOVED***
+}

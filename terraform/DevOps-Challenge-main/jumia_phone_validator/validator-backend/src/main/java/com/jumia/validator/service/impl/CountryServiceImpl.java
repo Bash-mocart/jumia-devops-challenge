@@ -23,7 +23,7 @@ public class CountryServiceImpl implements CountryService {
                 .filter(country -> StringUtils.equalsIgnoreCase(country.getName(), name))
                 .findFirst()
                 .orElse(null);
-    ***REMOVED***
+    }
 
     /**
      * Get a country from phone number.
@@ -35,7 +35,7 @@ public class CountryServiceImpl implements CountryService {
     public CountryEnum findByPhoneNumber(String phoneNumber) {
         String countryCode = getCountryCode(phoneNumber);
         return getCountryByCode(countryCode);
-    ***REMOVED***
+    }
 
     /**
      *  Get a country from country code.
@@ -48,9 +48,9 @@ public class CountryServiceImpl implements CountryService {
                 .filter(country -> StringUtils.equals(country.getPhoneCode(), countryCode))
                 .findFirst()
                 .orElse(null);
-    ***REMOVED***
+    }
 
     String getCountryCode(String number) {
         return ValidationUtil.getCountryCode(number);
-    ***REMOVED***
-***REMOVED***
+    }
+}

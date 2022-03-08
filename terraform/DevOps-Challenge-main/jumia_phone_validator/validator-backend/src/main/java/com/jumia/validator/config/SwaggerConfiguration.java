@@ -17,5 +17,5 @@ public class SwaggerConfiguration {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.jumia.validator.controller"))
                 .build();
-    ***REMOVED***
-***REMOVED***
+    }
+}
