@@ -1,0 +1,5 @@
+#files not needed 
+*.jar
+secret.tfvars
+bfg.jar
+
