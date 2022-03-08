@@ -1,5 +1,5 @@
 #files not needed 
 *.jar
-secret.tfvars
+./terraform/secret.tfvars
 bfg.jar
 
