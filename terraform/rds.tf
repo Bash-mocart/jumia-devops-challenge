@@ -23,23 +23,26 @@ resource "aws_db_instance" "postgres" {
     environment = {
       DB_ADDR = self.endpoint
       DB_NAME = var.db_name
+      DB_USERNAME = var.db_username
+      DB_USERNAME = var.db_password
     }
   }
-  # provisioner "local-exec" {
-  #   command = "echo yes"
-  #   working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
-  # }
-  # provisioner "local-exec" {
-  #   command = "mvn clean install"
-  #   working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
-  # }
-  # provisioner "local-exec" {
-  #   working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
-  # }
-  # provisioner "local-exec" {
-  #   command = "sudo docker push bashox/jumia-frontend:prod"
-  #   working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
-  # }
+  provisioner "local-exec" {
+    command = "echo yes"
+    working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
+  }
+  provisioner "local-exec" {
+    command = "mvn clean install"
+    working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
+  }
+  provisioner "local-exec" {
+    command = "sudo docker build -t bashox/jumia-frontend"
+    working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
+  }
+  provisioner "local-exec" {
+    command = "sudo docker push bashox/jumia-frontend"
+    working_dir = "./DevOps-Challenge-main/jumia_phone_validator/validator-backend/" 
+  }
   
   allocated_storage    = 10
   engine               = var.db_engine
