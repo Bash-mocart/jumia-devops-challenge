@@ -19,7 +19,7 @@
         timeout: 600
 
   tasks:
-  
+
   - name: "update kubeconfig"
     shell: |  
          aws eks update-kubeconfig --name eks --region eu-west-3
