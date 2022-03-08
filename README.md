@@ -5,30 +5,28 @@
 - docker
 - java 8
 - ansible
-- The SSH access to all the created servers 
-- The service jumia_phone_validator running per described ahead.
-API & UI to validate and list customers' and their phone numbers validation and countries.
-  
----
-
-## Technical specifications
-
-API application was made by Java v8 using Spring boot framework v2.4.5 and UI was made using ReactJS,
-
+- kubectl
+- eksctl
+- maven
 
 ---
 
-### Docker 
+## Overview
+
+Set up AWS Infrastructure and Deploy Microservices with just one command. 
+
+---
+
+### Commands to run 
  
-please run following commands to set up and configure the infrastructure.
+Make sure you have the prerequisites installed on your linux or unix system 
 
-* docker-compose up -d
-* UI could be accessed through http://localhost:8081/ 
-* API could be accessed through http://localhost:8080/api/v1/customers
+* cd terraform
+* terraform init
+* terraform apply  (input your database name and database password)
+* Endpoint get displayed in the console output.
+* Endpoint should be accessed through port 8081
 
-For a platform independent, easy and fast running of the project, backend and frontend images where pushed on docker hub and the docker-compose file will pull them directly, 
-alternatively Docker files are provided for both backend and frontend, and they could be used to build and run their images locally, but this needs node and maven to be instsalled on the machine.
-README files are provided for both frontend and backend for more details.
 
 ---
 
